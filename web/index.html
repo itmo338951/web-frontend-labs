@@ -17,11 +17,11 @@
 </header>
 <main>
     <article>
-        <section class="title">
-            <h2>Use-after-free в Brawl Stars</h2>
-            <h4>Вчера, 14:55 <a href="#">#кринж</a></h4>
-        </section>
-        <section class="content">
+        <h2>Use-after-free в Brawl Stars</h2>
+        <h4>
+            <time datetime="2024-09-04T14:55">Вчера, 14:55</time>
+            <a href="#">#кринж</a></h4>
+        <div class="content">
             <p>
                 Вчера я решил зайти в свой любимый бравлик и обнарушил, что при входе в магазин игра крашится. Мне стало интересно разобраться в этой проблеме и вы не поверите...
             </p>
@@ -35,7 +35,7 @@
                 встречалась в данной игре не один раз.</p>
             <p>Давайте откроем IDA и посмотрим на инструкции по адресу в бэктрейсе:</p>
             <pre>
-                <code lang="assembly">
+                <code>
 MOV X0, X20
 BL  free
 MOV X0, X20
@@ -45,28 +45,28 @@ MOV X20, #0
             </pre>
             <p>Кажется, в этом месте разработчик дважды вызвал <b>free()</b> с одним и тем же указателем, что приводило к проблеме. Данную проблему можно отпатчить &ndash; и я
                 обязательно напишу это в следующей статье!</p>
-        </section>
+        </div>
     </article>
 
     <article>
-        <section class="title">
-            <h2>Квадратные уравнения</h2>
-            <h4>Вчера, 13:24 <a href="#">#оффтоп</a></h4>
-        </section>
-        <section class="content">
+        <h2>Квадратные уравнения</h2>
+        <h4>
+            <time datetime="2024-09-04T13:24">Вчера, 13:24</time>
+            <a href="#">#оффтоп</a></h4>
+        <div class="content">
             <p>Сегодня я вспомнил как выглядит квадратное уравнение и хочу напомнить и вам.</p>
             <p>
                 y = x<sup>2</sup>
             </p>
-        </section>
+        </div>
     </article>
 
     <article>
-        <section class="title">
-            <h2>Подпишись на мой телеграм канал</h2>
-            <h4>Вчера, 13:12</h4>
-        </section>
-        <section class="content">
+        <h2>Подпишись на мой телеграм канал</h2>
+        <h4>
+            <time datetime="2024-09-04T13:12">Вчера, 13:12</time>
+        </h4>
+        <div class="content">
             <pre>
            _
  _        | |
@@ -78,7 +78,7 @@ MOV X20, #0
             </pre>
             <p>Просто нажми на эту кнопку:</p>
             <button>Подписаться</button>
-        </section>
+        </div>
     </article>
 </main>
 <footer>
