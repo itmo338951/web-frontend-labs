@@ -59,25 +59,67 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+/* Main */
+
+.main {
+    margin: 60px 20px 10px;
+    display: flex;
+    column-count: 2;
+    column-gap: 20px;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* Advertisements */
+
+.advertisements {
+    border: 2px solid #7d7d9d;
+    background: #ffffff;
+    box-shadow: 1px 1px #7d7d9da0, 2px 2px #7d7d9d70;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+}
+
+.advertisements-title {
+    font-size: 1.75em;
+    text-wrap: nowrap;
+}
+
+.advertisements-item {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.advertisements-item-title {
+    font-size: 1.5em;
+    text-wrap: nowrap;
+    color: #0f0f5f;
+    text-decoration: none;
+}
+
 /* Feed */
 
 .feed {
-    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .article {
-    border: 2px dotted #f5deb3;
+    border: 2px solid #f5deb3;
     background: #ffffff;
-    box-shadow: 1px 1px #f5deb3a0, 2px 2px #f5deb370, 3px 3px #f5deb340;
+    box-shadow: 1px 1px #f5deb3a0, 2px 2px #f5deb370;
     padding: 5px 10px;
-    margin: 5px 5px;
-    font-size: 16px;
 }
 
 .article-title {
     font-size: 2em;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
+    color: #0f0f5f;
     margin: 5px 3px 8px;
 }
 

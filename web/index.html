@@ -29,28 +29,30 @@
         </div>
     </nav>
 </header>
-<main class="feed">
-    <article class="article">
-        <h2 class="article-title">Use-after-free в Brawl Stars</h2>
-        <h4 class="article-subtitle">
-            <time datetime="2024-09-04T14:55">Вчера, 14:55</time>
-            <a href="#" class="article-subtitle-tag">#Кринж</a></h4>
-        <div class="article-content">
-            <p>
-                Вчера я решил зайти в <a class="article-content-italic">свой любимый бравлик</a> и обнаружил, что при входе в магазин игра крашится. Мне стало интересно разобраться
-                в этой проблеме и вы не поверите...
-            </p>
-            <p>По бэктрейсу можно было понять следующее:</p>
-            <ul>
-                <li>Краш произошел в результате вызова <a class="article-content-term">abort()</a> в функции <a class="article-content-term">free()</a></li>
-                <li>Выше по стеку находился код в <a class="article-content-term">libg.so</a>, библиотеке с основным кодом игры</li>
-                <li>Каждый раз бэктрейс был аналогичным</li>
-            </ul>
-            <p>Из этих условий следовало, что скорее всего имеет место ошибка работы с памятью &ndash; <a class="article-content-term">free()</a> вызывался с некорректным
-                указателем. Данная проблема уже
-                встречалась в данной игре не один раз.</p>
-            <p>Давайте откроем IDA и посмотрим на инструкции по адресу в бэктрейсе:</p>
-            <pre class="article-content-code">
+<main class="main">
+    <section class="feed">
+        <article class="article">
+            <h2 class="article-title">Use-after-free в Brawl Stars</h2>
+            <h4 class="article-subtitle">
+                <time datetime="2024-09-04T14:55">Вчера, 14:55</time>
+                <a href="#" class="article-subtitle-tag">#Кринж</a></h4>
+            <div class="article-content">
+                <p>
+                    Вчера я решил зайти в <a class="article-content-italic">свой любимый бравлик</a> и обнаружил, что при входе в магазин игра крашится. Мне стало интересно
+                    разобраться
+                    в этой проблеме и вы не поверите...
+                </p>
+                <p>По бэктрейсу можно было понять следующее:</p>
+                <ul>
+                    <li>Краш произошел в результате вызова <a class="article-content-term">abort()</a> в функции <a class="article-content-term">free()</a></li>
+                    <li>Выше по стеку находился код в <a class="article-content-term">libg.so</a>, библиотеке с основным кодом игры</li>
+                    <li>Каждый раз бэктрейс был аналогичным</li>
+                </ul>
+                <p>Из этих условий следовало, что скорее всего имеет место ошибка работы с памятью &ndash; <a class="article-content-term">free()</a> вызывался с некорректным
+                    указателем. Данная проблема уже
+                    встречалась в данной игре не один раз.</p>
+                <p>Давайте откроем IDA и посмотрим на инструкции по адресу в бэктрейсе:</p>
+                <pre class="article-content-code">
                 <code>
 MOV X0, X20
 BL  free
@@ -58,35 +60,35 @@ MOV X0, X20
 BL  free      ; краш произошел здесь!
 MOV X20, #0</code>
             </pre>
-            <p>Кажется, в этом месте разработчик дважды вызвал <b>free()</b> с одним и тем же указателем, что приводило к проблеме. Данную проблему можно отпатчить &ndash; и я
-                обязательно напишу это в следующей статье!</p>
-        </div>
-    </article>
-
-    <article class="article">
-        <h2 class="article-title">Квадратные уравнения</h2>
-        <h4 class="article-subtitle">
-            <time datetime="2024-09-04T13:24">Вчера, 13:24</time>
-            <a href="#" class="article-subtitle-tag">#Оффтоп</a></h4>
-        <div class="article-content">
-            <p>Сегодня я вспомнил как выглядит квадратное уравнение и хочу напомнить и вам.</p>
-            <p>y = x<sup>2</sup></p>
-            <p>Она, кстати, выглядит примерно так:</p>
-            <div class="article-content-image">
-                <img src="article2-image.png" alt="square-function-graph">
+                <p>Кажется, в этом месте разработчик дважды вызвал <b>free()</b> с одним и тем же указателем, что приводило к проблеме. Данную проблему можно отпатчить &ndash; и я
+                    обязательно напишу это в следующей статье!</p>
             </div>
-        </div>
-    </article>
+        </article>
 
-    <article class="article">
-        <h2 class="article-title">Подпишись на мой телеграм канал</h2>
-        <h4 class="article-subtitle">
-            <time datetime="2024-09-04T13:12">Вчера, 13:12</time>
-        </h4>
-        <div class="article-content">
-            <div class="article-content-logotype">
-                <img src="article3-image.svg" width="100" height="100" alt="telegram-logo">
-                <pre>
+        <article class="article">
+            <h2 class="article-title">Квадратные уравнения</h2>
+            <h4 class="article-subtitle">
+                <time datetime="2024-09-04T13:24">Вчера, 13:24</time>
+                <a href="#" class="article-subtitle-tag">#Оффтоп</a></h4>
+            <div class="article-content">
+                <p>Сегодня я вспомнил как выглядит квадратное уравнение и хочу напомнить и вам.</p>
+                <p>y = x<sup>2</sup></p>
+                <p>Она, кстати, выглядит примерно так:</p>
+                <div class="article-content-image">
+                    <img src="article2-image.png" alt="square-function-graph">
+                </div>
+            </div>
+        </article>
+
+        <article class="article">
+            <h2 class="article-title">Подпишись на мой телеграм канал</h2>
+            <h4 class="article-subtitle">
+                <time datetime="2024-09-04T13:12">Вчера, 13:12</time>
+            </h4>
+            <div class="article-content">
+                <div class="article-content-logotype">
+                    <img src="article3-image.svg" width="100" height="100" alt="telegram-logo">
+                    <pre>
            _
  _        | |
 | |_  ____| | ____ ____  ____ ____ ____
@@ -95,12 +97,27 @@ MOV X20, #0</code>
  \___)____)_|\____)_|| |_|   \_||_|_|_|_|
                  (_____|
             </pre>
+                </div>
+                <p>Просто нажми на эту кнопку:</p>
+                <button class="article-content-button">Подписаться</button>
             </div>
-            <p>Просто нажми на эту кнопку:</p>
-            <button class="article-content-button">Подписаться</button>
+        </article>
+    </section>
+    <section class="advertisements">
+        <div class="advertisements-title">
+            <a>Интересные статьи</a>
         </div>
-    </article>
+        <div class="advertisements-item">
+            <a href="#" class="advertisements-item-title">Use-after-free в Brawl Stars</a>
+            <a>14 комментариев</a>
+        </div>
+        <div class="advertisements-item">
+            <a href="#" class="advertisements-item-title">Квадратные уравнения</a>
+            <a>13 комментариев</a>
+        </div>
+    </section>
 </main>
+
 <footer class="footer">
     <div class="footer-element">
         <a href="#" class="footer-element-link">О нас</a>
