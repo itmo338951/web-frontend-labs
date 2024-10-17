@@ -68,6 +68,38 @@ body {
     font-size: 16px;
 }
 
+/* Tables */
+.table {
+    display: grid;
+    background: #000000;
+    grid-template-columns: auto 15% 15% 15% 15% 15%;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-gap: 1px;
+    padding: 1px;
+}
+
+.table-element {
+    padding: 1px;
+    text-wrap: pretty;
+    text-align: center;
+    line-height: 28px;
+    background: #ffffff;
+}
+
+.table-element-odd {
+    background: #efefef;
+}
+
+.table-element-gray {
+    background: #cfcfcf;
+}
+
+.table-element-header {
+    background: #f0f0cf;
+    grid-column: 1 / span 6;
+}
+
 /* Advertisements */
 
 .advertisements {
