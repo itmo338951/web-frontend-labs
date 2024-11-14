@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
     background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -49,6 +52,14 @@ body {
     height: 100%;
     padding: 0 10px;
     align-content: center;
+}
+
+.header-navbar-item:hover {
+    background: #fafaef;
+}
+
+.header-navbar-item-active {
+    background: #efefef;
 }
 
 .header-navbar-text {
@@ -219,6 +230,7 @@ body {
 /* Footer */
 
 .footer {
+    margin-top: auto;
     background: #b0b0b0;
     font-family: "Roboto Thin", serif;
     display: flex;
