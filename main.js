@@ -6,8 +6,7 @@ window.addEventListener("load", function () {
 
     for (const element of document.querySelectorAll(".header-navbar-item")) {
         const hrefElement = element.querySelector("a");
-        const href = hrefElement.href;
-        if (href && location.pathname === href) {
+        if (hrefElement && location.href === hrefElement.href) {
             element.classList.add("header-navbar-item-active");
         }
     }
