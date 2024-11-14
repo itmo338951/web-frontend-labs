@@ -118,6 +118,7 @@ formElement.addEventListener("submit", function (evt) {
         alert("Введите названия задачи!");
     }
 
+    formElement.reset();
     return false;
 });
 
