@@ -73,10 +73,28 @@ body {
     display: grid;
     background: #000000;
     grid-template-columns: auto 15% 15% 15% 15% 15%;
-    grid-auto-flow: row;
+    grid-template-rows: auto auto auto auto auto;
+    grid-auto-flow: column;
     align-content: center;
     grid-gap: 1px;
     padding: 1px;
+}
+
+/* Funny things to make grids work in <table> and its children elements */
+.table > thead {
+    display: contents;
+}
+
+.table > thead > tr {
+    display: contents;
+}
+
+.table > tbody {
+    display: contents;
+}
+
+.table > tbody > tr {
+    display: contents;
 }
 
 .table-element {
@@ -84,19 +102,15 @@ body {
     text-wrap: pretty;
     text-align: center;
     line-height: 28px;
-    background: #ffffff;
-}
-
-.table-element-odd {
-    background: #efefef;
-}
-
-.table-element-gray {
     background: #cfcfcf;
 }
 
+.table-element:nth-child(odd) {
+    background: #efefef;
+}
+
 .table-element-header {
-    background: #f0f0cf;
+    background: #f0f0cf !important;
     grid-column: 1 / span 6;
 }
 
