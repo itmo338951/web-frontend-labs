@@ -1,8 +1,8 @@
-const loadStart = Date.now();
-
 window.addEventListener("load", function () {
+    const pageEnd = performance.mark("pageEnd");
+
     const loadStatElement = document.getElementById("js-loading-time");
-    loadStatElement.innerText = String(Date.now() - loadStart);
+    loadStatElement.innerText = String(pageEnd.startTime);
 
     for (const element of document.querySelectorAll(".header-navbar-item")) {
         const hrefElement = element.querySelector("a");
