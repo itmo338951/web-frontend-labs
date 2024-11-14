@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Недохабр</title>
+    <meta name="description" content="Недохабр - место, где каждый может написать технический кринжовый пост">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/javascript" src="main.js"></script>
+    <script type="application/javascript" src="form.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-logo" onclick="gotoIndex()">
+        <img class="header-logo-img" src="https://nulls.gg/assets/img/logo.png" alt="logo">
+        <div class="header-logo-text">Недохабр</div>
+    </div>
+    <nav class="header-navbar">
+        <div class="header-navbar-item" data-ref="featured.html">
+            <a class="header-navbar-text">#Годнота</a>
+        </div>
+        <div class="header-navbar-item" data-ref="reversing.html">
+            <a class="header-navbar-text">#RE</a>
+        </div>
+        <div class="header-navbar-item" data-ref="cringe.html">
+            <a class="header-navbar-text">#Кринж</a>
+        </div>
+        <div class="header-navbar-item">
+            <a href="#" class="header-navbar-text">Войти...</a>
+        </div>
+    </nav>
+</header>
+<main class="main">
+    <section class="feed">
+        <article class="article">
+            <h2 class="article-title">Потрясающий калькулятор</h2>
+            <h4 class="article-subtitle">
+                <time datetime="2024-01-17T16:07">Сегодня, 16:07</time>
+                <a href="#" class="article-subtitle-tag">#JS</a></h4>
+            <div class="article-content">
+                <p>На данной странице вы можете составить себе список дел на ближайший день, а потом еще и отмечать их выполнение!</p>
+                <form id="task-form" class="task-form">
+                    <label for="text-input">Придумайте себе новое дело:</label>
+                    <input id="text-input" class="task-form-input article-content-input" type="text" minlength="1"/>
+                    <button type="submit" class="article-content-button">Добавить</button>
+                </form>
+                <div id="task-list" class="task-list">
+                </div>
+                <p>У вас осталось <span id="task-cnt-remaining">0</span> задач из <span id="task-cnt-total">0</span>.</p>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-element">
+        <a href="#" class="footer-element-link">О нас</a>
+    </div>
+    <div class="footer-element">
+        <a href="#" class="footer-element-link">Политика конфиденциальности</a>
+    </div>
+    <div class="footer-element">
+        <a href="#" class="footer-element-link">Пожаловаться на контент</a>
+    </div>
+    <div class="footer-element footer-element-copyright">
+        <a class="footer-element-text">Время загрузки страницы: <span id="js-loading-time">...</span> ms</a>
+        <a class="footer-element-text">Недохабр, 2024</a>
+    </div>
+</footer>
+</body>
+</html>

@@ -227,6 +227,16 @@ body {
     padding: 10px;
 }
 
+.article-content-button:hover {
+    background-color: #e3e3e3;
+}
+
+.article-content-input {
+    background: none;
+    border: 1px double #000000;
+    padding: 10px;
+}
+
 /* Footer */
 
 .footer {
