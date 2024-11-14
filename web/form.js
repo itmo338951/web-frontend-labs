@@ -8,7 +8,7 @@ const dayOfWeekElements = document.querySelectorAll(".task-days > *");
 const tasks = [];
 let currentDayOfWeek = 0;
 
-function renderTask(object, isNew = false) {
+function renderTask(object, isNew) {
     const checkboxElement = document.createElement("input");
     checkboxElement.type = "checkbox";
 
@@ -112,7 +112,7 @@ formElement.addEventListener("submit", function (evt) {
     if (name) {
         const object = {"name": name, "finished": false, "dayOfWeek": currentDayOfWeek};
         tasks.push(object);
-        renderTask(object);
+        renderTask(object, true);
         triggerTasksChange();
     } else {
         alert("Введите названия задачи!");
