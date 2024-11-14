@@ -22,6 +22,11 @@
     border: #f0f0cf solid;
 }
 
+.task-item-appear {
+    animation-duration: 0.25s;
+    animation-name: item-appearing-anim;
+}
+
 .task-item-completed {
     text-decoration: line-through;
     background-color: #daffda;
@@ -39,4 +44,24 @@
     width: 25px;
     height: 25px;
     border: none;
+}
+
+.task-item-removing-anim {
+    animation-duration: 0.25s;
+    animation-name: item-removing-anim;
+}
+
+@keyframes item-removing-anim {
+    to {
+        scale: 1 0;
+    }
+}
+
+@keyframes item-appearing-anim {
+    from {
+        scale: 1 0;
+    }
+    to {
+        scale: 1 1;
+    }
 }

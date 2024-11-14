@@ -6,7 +6,7 @@ const counterTotalElement = document.getElementById("task-cnt-total");
 
 const tasks = [];
 
-function addTask(name, isFinished) {
+function addTask(name, isFinished = false, isNew = false) {
     const object = {"name": name, "finished": isFinished};
 
     const checkboxElement = document.createElement("input");
@@ -41,12 +41,19 @@ function addTask(name, isFinished) {
             triggerTasksChange();
         }
 
-        formListElement.removeChild(element);
+        element.classList.add("task-item-removing-anim");
+        setTimeout(function () {
+            formListElement.removeChild(element);
+        }, 250);
     });
 
     if (isFinished) {
         checkboxElement.checked = true;
         element.classList.add("task-item-completed");
+    }
+
+    if (isNew) {
+        element.classList.add("task-item-appear");
     }
 
     formListElement.appendChild(element);
@@ -66,7 +73,7 @@ formElement.addEventListener("submit", function (evt) {
 
     const name = textInputElement.value.trim();
     if (name) {
-        addTask(name, false);
+        addTask(name, false, true);
     } else {
         alert("Введите названия задачи!");
     }
