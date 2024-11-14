@@ -46,6 +46,15 @@
                     <input id="text-input" class="task-form-input article-content-input" type="text" minlength="1"/>
                     <button type="submit" class="article-content-button">Добавить</button>
                 </form>
+                <div class="task-days">
+                    <button class="article-content-button" onclick="setDoW(0)">Понедельник</button>
+                    <button class="article-content-button" onclick="setDoW(1)">Вторник</button>
+                    <button class="article-content-button" onclick="setDoW(2)">Среда</button>
+                    <button class="article-content-button" onclick="setDoW(3)">Четверг</button>
+                    <button class="article-content-button" onclick="setDoW(4)">Пятница</button>
+                    <button class="article-content-button" onclick="setDoW(5)">Суббота</button>
+                    <button class="article-content-button" onclick="setDoW(6)">Воскресенье</button>
+                </div>
                 <div id="task-list" class="task-list">
                 </div>
                 <p>У вас осталось <span id="task-cnt-remaining">0</span> задач из <span id="task-cnt-total">0</span>.</p>

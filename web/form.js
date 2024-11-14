@@ -3,17 +3,17 @@ const formListElement = document.getElementById("task-list");
 const textInputElement = document.getElementById("text-input");
 const counterRemainingElement = document.getElementById("task-cnt-remaining");
 const counterTotalElement = document.getElementById("task-cnt-total");
+const dayOfWeekElements = document.querySelectorAll(".task-days > *");
 
 const tasks = [];
+let currentDayOfWeek = 0;
 
-function addTask(name, isFinished = false, isNew = false) {
-    const object = {"name": name, "finished": isFinished};
-
+function renderTask(object, isNew = false) {
     const checkboxElement = document.createElement("input");
     checkboxElement.type = "checkbox";
 
     const textElement = document.createElement("span");
-    textElement.innerText = name;
+    textElement.innerText = object.name;
 
     const labelElement = document.createElement("label");
     labelElement.appendChild(checkboxElement);
@@ -47,7 +47,7 @@ function addTask(name, isFinished = false, isNew = false) {
         }, 250);
     });
 
-    if (isFinished) {
+    if (object.finished) {
         checkboxElement.checked = true;
         element.classList.add("task-item-completed");
     }
@@ -57,15 +57,52 @@ function addTask(name, isFinished = false, isNew = false) {
     }
 
     formListElement.appendChild(element);
-    tasks.push(object);
+}
+
+function setDoW(day) {
+    console.log("DoW: " + day);
+
+    currentDayOfWeek = day;
+
+    for (let i = 0; i < dayOfWeekElements.length; i++) {
+        const isActive = (i === day);
+        dayOfWeekElements[i].classList.toggle("task-day-current", isActive);
+    }
+
+    // Reset all children!
+    formListElement.innerHTML = "";
+
+    for (const object of tasks) {
+        if (object.dayOfWeek === day) {
+            renderTask(object, false);
+        }
+    }
+
+    localStorage.setItem("day-of-week", String(day));
     triggerTasksChange();
 }
 
 function triggerTasksChange() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
-    counterRemainingElement.innerText = String(tasks.filter((task) => !task.finished).length);
-    counterTotalElement.innerText = String(tasks.length);
+    const dayTasks = tasks.filter((task) => (task.dayOfWeek === currentDayOfWeek));
+    const unfinishedTasks = dayTasks.filter((task) => (!task.finished));
+    counterRemainingElement.innerText = String(unfinishedTasks.length);
+    counterTotalElement.innerText = String(dayTasks.length);
+}
+
+function init() {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (savedTasks) {
+        tasks.push(...savedTasks);
+    }
+
+    const savedDayOfWeek = localStorage.getItem("day-of-week");
+    if (savedDayOfWeek) {
+        setDoW(parseInt(savedDayOfWeek));
+    } else {
+        setDoW(0);
+    }
 }
 
 formElement.addEventListener("submit", function (evt) {
@@ -73,7 +110,10 @@ formElement.addEventListener("submit", function (evt) {
 
     const name = textInputElement.value.trim();
     if (name) {
-        addTask(name, false, true);
+        const object = {"name": name, "finished": false, "dayOfWeek": currentDayOfWeek};
+        tasks.push(object);
+        renderTask(object);
+        triggerTasksChange();
     } else {
         alert("Введите названия задачи!");
     }
@@ -81,9 +121,4 @@ formElement.addEventListener("submit", function (evt) {
     return false;
 });
 
-const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-if (savedTasks) {
-    for (const object of savedTasks) {
-        addTask(object.name, object.finished);
-    }
-}
+init();

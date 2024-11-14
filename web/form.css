@@ -8,6 +8,21 @@
     gap: 5px;
 }
 
+.task-days {
+    margin: 5px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.task-days > * {
+    flex: 1 1 0;
+}
+
+.task-day-current {
+    background-color: #cfcfcf !important;
+}
+
 .task-form-input {
     flex-grow: 1;
 }
@@ -19,7 +34,7 @@
     justify-content: space-between;
     padding: 15px;
     margin: 5px 0;
-    border: #f0f0cf solid;
+    border: #efefef 1px solid
 }
 
 .task-item-appear {
