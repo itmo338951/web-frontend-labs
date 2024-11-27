@@ -3,29 +3,20 @@ const formListElement = document.getElementById("task-list");
 const textInputElement = document.getElementById("text-input");
 const counterRemainingElement = document.getElementById("task-cnt-remaining");
 const counterTotalElement = document.getElementById("task-cnt-total");
+const itemTemplateElement = document.getElementById("task-item-template");
 const dayOfWeekElements = document.querySelectorAll(".task-days > *");
 
 const tasks = [];
 let currentDayOfWeek = 0;
 
 function renderTask(object, isNew) {
-    const checkboxElement = document.createElement("input");
-    checkboxElement.type = "checkbox";
+    const fragment = itemTemplateElement.content.cloneNode(true);
+    const element = fragment.querySelector(".task-item");
+    const textElement = element.querySelector(".task-item-text");
+    const checkboxElement = element.querySelector("input[type=checkbox]");
+    const removeElement = element.querySelector(".task-item-remove");
 
-    const textElement = document.createElement("span");
     textElement.innerText = object.name;
-
-    const labelElement = document.createElement("label");
-    labelElement.appendChild(checkboxElement);
-    labelElement.appendChild(textElement);
-
-    const removeElement = document.createElement("button");
-    removeElement.classList.add("task-item-remove");
-
-    const element = document.createElement("div");
-    element.classList.add("task-item");
-    element.appendChild(labelElement);
-    element.appendChild(removeElement);
 
     checkboxElement.addEventListener("change", function (evt) {
         object.finished = checkboxElement.checked;

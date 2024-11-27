@@ -56,6 +56,15 @@
                     <button class="article-content-button" onclick="setDoW(6)">Воскресенье</button>
                 </div>
                 <div id="task-list" class="task-list">
+                    <template id="task-item-template">
+                        <div class="task-item">
+                            <label>
+                                <input type="checkbox"/>
+                                <span class="task-item-text"></span>
+                            </label>
+                            <button class="task-item-remove"></button>
+                        </div>
+                    </template>
                 </div>
                 <p>У вас осталось <span id="task-cnt-remaining">0</span> задач из <span id="task-cnt-total">0</span>.</p>
             </div>
