@@ -6,6 +6,7 @@
     <meta name="description" content="Недохабр - место, где каждый может написать технический кринжовый пост">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="application/javascript" src="main.js"></script>
+    <script type="application/javascript" src="comments.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -69,16 +70,16 @@ MOV X20, #0</code>
     </section>
     <section class="advertisements">
         <div class="advertisements-title">
-            <a>Интересные статьи</a>
+            <a>Интересные посты</a>
         </div>
-        <div class="advertisements-item">
-            <a href="#" class="advertisements-item-title">Use-after-free в Brawl Stars</a>
-            <a>14 комментариев</a>
+        <div class="advertisements-loading">
         </div>
-        <div class="advertisements-item">
-            <a href="#" class="advertisements-item-title">Квадратные уравнения</a>
-            <a>13 комментариев</a>
-        </div>
+        <template id="post-template">
+            <div class="advertisements-item">
+                <a href="#" class="advertisements-item-title"></a>
+                <a class="advertisements-item-content"></a>
+            </div>
+        </template>
     </section>
 </main>
 

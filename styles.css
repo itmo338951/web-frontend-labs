@@ -135,13 +135,16 @@ body {
     box-shadow: 1px 1px #7d7d9da0, 2px 2px #7d7d9d70;
     font-family: "Roboto", sans-serif;
     display: flex;
+    min-width: 0;
+    flex-basis: 350px;
+    flex-shrink: 0;
     flex-direction: column;
     padding: 5px 10px;
 }
 
 .advertisements-title {
     font-size: 1.75em;
-    text-wrap: nowrap;
+    text-wrap: wrap;
 }
 
 .advertisements-item {
@@ -150,9 +153,19 @@ body {
     flex-direction: column;
 }
 
+.advertisements-loading {
+    background-image: url("icons/loading.svg");
+    margin: 50px 0;
+    width: 80px;
+    height: 80px;
+    align-self: center;
+}
+
 .advertisements-item-title {
     font-size: 1.5em;
     text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     color: #0f0f5f;
     text-decoration: none;
 }
@@ -270,7 +283,7 @@ body {
     font-weight: lighter;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
     .header-navbar {
         display: none;
     }
