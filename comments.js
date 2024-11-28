@@ -23,12 +23,13 @@
             for (const post of content) {
                 addPost(post);
             }
-            const loadingElement = postListElement.querySelector(".advertisements-loading");
-            if (loadingElement) {
-                postListElement.removeChild(loadingElement);
-            }
         } catch (e) {
             addPost({title: "Здесь был пост...", body: "Но его нет, ведь сервер, к сожалению, недоступен :("})
+        }
+
+        const loadingElement = postListElement.querySelector(".advertisements-loading");
+        if (loadingElement) {
+            postListElement.removeChild(loadingElement);
         }
     });
 })();
