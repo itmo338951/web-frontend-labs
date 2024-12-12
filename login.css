@@ -1,0 +1,50 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal.isOpen {
+    display: block !important;
+}
+
+.modal.isOpening {
+    animation-duration: 0.25s;
+    animation-name: modal-appearing-anim;
+}
+
+.modal.isClosing {
+    animation-duration: 0.25s;
+    animation-name: modal-fade-anim;
+}
+
+.modal-main {
+    display: flex;
+    margin: 75px 50px 50px;
+    padding: 50px;
+    border: 1px #808080 solid;
+    box-shadow: 0 1px #80808080, 0 2px #80808040;
+    flex-direction: column;
+    background: #f0f0f0;
+}
+
+@keyframes modal-appearing-anim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modal-fade-anim {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
