@@ -283,6 +283,11 @@ body {
     font-weight: lighter;
 }
 
+.article-content-image > img {
+    width: 100%;
+    max-width: 640px;
+}
+
 @media screen and (max-width: 1200px) {
     .header {
         flex-direction: column;
