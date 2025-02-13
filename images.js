@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
          - url: функция для получения адреса качественного изображения (достаем из data-тега data-full-src)
          */
         new Viewer(imageElement, {
-            navbar: false,
+            navbar: true,
             toolbar: false,
             movable: false,
             title: imageElement.alt,
